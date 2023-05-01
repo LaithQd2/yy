@@ -22,8 +22,13 @@ body {
     background-attachment: fixed;
 }
 
+.container h1{
+    font-size: 0.875rem;
+    color: #fff;
+}
+
 .newtask{
-    background-color: white;
+    background-color: #fff;
     border-radius: 3px;
     padding: 10px;
     display: flex;
@@ -34,7 +39,7 @@ body {
 }
 
 .newtask input {
-    width: 60vw;
+    width: 275px;
     height: 40px;
     border-radius: 3px;
     font-size: 1.125rem;
@@ -43,7 +48,7 @@ body {
 }
 
 .newtask button {
-    width: 18vw;
+    width: 60px;
     height: 40px;
     border: none;
     border-radius: 3px;
@@ -56,42 +61,46 @@ body {
 }
 
 .newtask button:hover {
-    background-color: #9F12A4;
+    background-color: #9C0000;
 }
 
 .tasks {
-    background-color: white;
+    background-color: #fff;
     border-radius: 3px;
     padding: 35px;
     margin-top: 30px;
     -webkit-box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.25);
     box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.25);
+    overflow: scroll;
+    height: 500px;    
 }
 
 .task{
-    height: 40px;
-    padding: 25px 10px;
-    margin-top: 10px;
+    height: 40px;    
+    padding: 45px 5px;    
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 2px solid #d1d3d4;
+    border-bottom: 2px solid #bfbfbf;
 }
 
 .task span{
+    width: 250px;
     font-size: 1.125rem;
     font-weight: 400;
     cursor: pointer;
+    color: #000;
+    overflow: scroll;
 }
 
 .task button{
-    width: 12vw;
-    height: 35px;
+    width: 30px;
+    height: 30px;
     border: none;
     border-radius: 3px;
     margin: 30px 5px;
-    background-color: #5C0000;
-    font-size: 1.125em;
+    background-color: #bfbfbf;
+    font-size: 1rem;
     color: white;
     font-weight: 900;
     cursor: pointer;
@@ -99,9 +108,15 @@ body {
 }
 
 .task button:hover {
-    background-color: #9F12A4;
+    background-color: #bfbfbf75;
 }
 
 .completed {
     text-decoration: line-through;
+}
+
+.tasks p {
+    text-align: center;
+    font-size: 1.125rem;
+    color: #000;
 }
