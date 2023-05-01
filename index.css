@@ -8,7 +8,7 @@
 }
 
 body {
-    height: 100vh;
+    height: 100hv;
     width: 100%;
     font-family: system-ui;
     display: flex;
@@ -121,4 +121,11 @@ body {
     text-align: center;
     font-size: 1.125rem;
     color: #000;
+}
+
+@media only screen and (min-width: 1000px){
+
+.tasks {
+    height: 70vh;
+}
 }
