@@ -28,6 +28,7 @@ body {
 }
 
 .newtask{
+    height: 20vh;    
     background-color: #fff;
     border-radius: 3px;
     padding: 10px;
@@ -40,7 +41,7 @@ body {
 
 .newtask input {
     width: 275px;
-    height: 40px;
+    height: 40px;    
     border-radius: 3px;
     font-size: 1.125rem;
     margin: 30px 5px;
