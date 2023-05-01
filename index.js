@@ -1,50 +1,72 @@
-const form = document.querySelector('form');
-const newTaskInput = document.querySelector('.newtask input');
-const tasksList = document.querySelector('.tasks');
+const add = document.querySelector(".push");
+const input = document.querySelector("#input-field");
+const tasksList = document.querySelector(".tasks");
+const form = document.querySelector("form");
 
-// Prevent form submission from reloading the page
-form.addEventListener('submit', (event) => {
-  event.preventDefault();
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
 });
 
-// Add new task when "Add" button is clicked
-document.querySelector('.push').addEventListener('click', () => {
-  const taskName = newTaskInput.value.trim();
-  if (!taskName) {
-    alert('Please enter a task');
-    return;
+let dataExists = false;
+
+// Check if data exists in localStorage and load it if it does
+if (localStorage.getItem("tasks")) {
+  tasksList.innerHTML = localStorage.getItem("tasks");
+  dataExists = true;
+}
+
+function mood() {
+  if (!dataExists) {
+    tasksList.innerHTML = "<p>No data available.</p>";
   }
-  tasksList.innerHTML += `
-    <div class="task">
-      <span>${taskName}</span>
-      <button class="delete">X</button>
-    </div>
-  `;
-  newTaskInput.value = '';
+}
 
-  // Attach click event listener to delete button of newly added task
-  const currentTask = tasksList.lastElementChild.querySelector('.delete');
-  currentTask.addEventListener('click', () => {
-    currentTask.parentNode.remove();
-  });
+add.onclick = () =>{
+    if(input.value != ""){
+        tasksList.innerHTML += `
+            <div class="task">
+                <span>${input.value}</span>
+                <button class="delete">🗑</button>
+            </div>`
+        input.value = "";
+        mood = "data";
+        if (tasksList.querySelector("p")) {
+            tasksList.removeChild(tasksList.querySelector("p"));
+        }
 
-  // Attach click event listener to newly added task
-  const newTask = tasksList.lastElementChild;
-  newTask.addEventListener('click', () => {
-    newTask.classList.add('completed');
-  });
-});
+        // Save tasks to localStorage
+        localStorage.setItem("tasks", tasksList.innerHTML);
+    } else {
+        mood = "noData";
+    }
+};
 
-// Attach click event listener to delete button of existing tasks
-tasksList.addEventListener('click', (event) => {
-  if (event.target.classList.contains('delete')) {
+// Use event delegation to handle delete button clicks
+tasksList.addEventListener("click", (event) => {
+  if (event.target.classList.contains("delete")) {
     event.target.parentNode.remove();
+    if (tasksList.childElementCount == 0) {
+      tasksList.innerHTML = `<p>No data available.</p>`;
+      mood = "noData";
+      // Remove tasks from localStorage if no tasks left
+      localStorage.removeItem("tasks");
+    } else {
+      // Update tasks in localStorage
+      localStorage.setItem("tasks", tasksList.innerHTML);
+    }
   }
 });
 
-// Attach click event listener to existing tasks
-tasksList.addEventListener('click', (event) => {
-  if (!event.target.classList.contains('delete')) {
-    event.target.classList.add('completed');
+tasksList.addEventListener("click", (event) => {
+  if (event.target.tagName === "SPAN") {
+    if (event.target.classList.contains("completed")){
+      event.target.classList.remove("completed");
+    } else {
+      event.target.classList.add("completed");
+    }
+    // Update tasks in localStorage
+    localStorage.setItem("tasks", tasksList.innerHTML);
   }
 });
+
+mood();
