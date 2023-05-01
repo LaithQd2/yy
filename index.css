@@ -122,10 +122,3 @@ body {
     font-size: 1.125rem;
     color: #000;
 }
-
-@media only screen and (min-width: 1000px){
-
-.tasks {
-    height: 70vh;
-}
-}
