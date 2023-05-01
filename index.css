@@ -64,38 +64,42 @@ body {
     border-radius: 3px;
     padding: 35px;
     margin-top: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     -webkit-box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.25);
     box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.25);
 }
 
 .task{
-    background-color: white;
-    height: 50px;
-    padding: 5px 10px;
+    height: 40px;
+    padding: 25px 10px;
     margin-top: 10px;
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    border-bottom: 2px solid #did3d4;
-    cursor: pointer;
+    align-items: center;
+    border-bottom: 2px solid #d1d3d4;
 }
 
 .task span{
-    font-size: 15px;
+    font-size: 1.125rem;
     font-weight: 400;
+    cursor: pointer;
 }
 
-task button{
-    background-color: #5C0000;
-    color: white;
-    height: 100%;
-    width: 4px;
-    border-radius: 5px;
+.task button{
+    width: 12vw;
+    height: 35px;
     border: none;
+    border-radius: 3px;
+    margin: 30px 5px;
+    background-color: #5C0000;
+    font-size: 1.125em;
+    color: white;
+    font-weight: 900;
     cursor: pointer;
+    transition: 0.2s;
+}
+
+.task button:hover {
+    background-color: #9F12A4;
 }
 
 .completed {
