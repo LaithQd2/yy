@@ -28,7 +28,7 @@ body {
 }
 
 .newtask{
-    height: 20vh;    
+    height: 75px;    
     background-color: #fff;
     border-radius: 3px;
     padding: 10px;
@@ -70,7 +70,7 @@ body {
     background-color: #fff;
     border-radius: 3px;
     padding: 35px;
-    margin-top: 30px;
+    margin-top: 15px;
     -webkit-box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.25);
     box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.25);
     overflow: scroll;
@@ -87,6 +87,7 @@ body {
 
 .task span{
     width: 250px;
+    max-height: 75px;
     font-size: 1.125rem;
     font-weight: 400;
     cursor: pointer;
@@ -109,7 +110,7 @@ body {
 }
 
 .task button:hover {
-    background-color: #bfbfbf75;
+    background-color: #a6a6a6;
 }
 
 .completed {
